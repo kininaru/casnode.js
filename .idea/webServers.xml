@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="46a0ccd2-b4f9-4850-b1ad-2d64fa1b5402" name="product.env.kininaru.dev" url="https://test.kininaru.dev">
+        <fileTransfer rootFolder="/webpages" accessType="SFTP" host="product.env.kininaru.dev" port="22" sshConfigId="9e240415-f3ac-4bc7-bc5b-6e1c22144798" sshConfig="root@product.env.kininaru.dev:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
