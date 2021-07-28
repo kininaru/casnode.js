@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig authType="PASSWORD" host="product.env.kininaru.dev" id="9e240415-f3ac-4bc7-bc5b-6e1c22144798" port="22" nameFormat="DESCRIPTIVE" username="root" />
-    </configs>
-  </component>
-</project>
