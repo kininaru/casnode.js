@@ -10,7 +10,7 @@ class Account extends React.Component {
   }
 
   renderAccount() {
-    return <div>{this.props.account.name}</div>;
+    return <div>Your Account: {this.props.account.name}</div>;
   }
 
   render() {
