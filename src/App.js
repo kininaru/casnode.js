@@ -13,11 +13,11 @@ class App extends React.Component {
     let endpoint = casnodeDiv.getAttribute("endpoint");
     if (endpoint === null || endpoint.length === 0) endpoint = null;
     let topicId = casnodeDiv.getAttribute("topicId");
-    if (topicId === null) topicId = -1;
+    if (topicId === null) topicId = "-1";
 
     this.state = {
       nodeId: "Casbin",
-      topicId: topicId,
+      topicId: parseInt(topicId),
       account: null,
       endpoint: endpoint,
     }

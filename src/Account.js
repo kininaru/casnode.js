@@ -6,7 +6,7 @@ class Account extends React.Component {
   }
 
   renderLogin() {
-    return <div>Need login</div>;
+    return <button onClick={() => window.location.href = `${this.props.endpoint}/signin`}>Signin into Casnode</button>;
   }
 
   renderAccount() {
