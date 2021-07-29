@@ -1,7 +1,7 @@
 import React from "react";
 import * as Backends from "./Backends";
-import CasnodeAvatar from "./CasnodeAvatar";
-import {Button, Input} from "antd";
+import {Avatar, Comment, Input, List, Button} from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 class Reply extends React.Component {
   constructor(props) {
@@ -40,13 +40,10 @@ class Reply extends React.Component {
     });
   }
 
-  renderReplies() {
-    return this.state.replies.map(reply => {
-      return <div style={{height: 100}}>
-        <CasnodeAvatar avatar={reply.avatar} name={reply.author} />
-        <div style={{marginLeft: 36, marginTop: 10}} dangerouslySetInnerHTML={{__html: reply.content}}/>
-      </div>;
-    });
+  replyTo(target) {
+    this.setState({
+      text: `@${target} `,
+    })
   }
 
   render() {
@@ -55,19 +52,43 @@ class Reply extends React.Component {
       this.state.replies === null) return <div>Loading...</div>;
 
     return <div>
-      <div>
-        <Input
-          style={{width: 200}}
-          placeholder={`Reply as ${this.props.account.name}`}
-          onChange={e => this.setState( { text: e.target.value })}
+      { this.props.account !== undefined && this.props.account !== null ? (<div>
+        <Comment
+          content={
+            <div>
+              <TextArea
+                rows={4}
+                placeholder={`Reply as ${this.props.account.name}`}
+                onChange={e => this.setState({ text: e.target.value })}
+                value={this.state.text}
+              />
+              <Button
+                type={"primary"}
+                style={{marginTop: 10}}
+                onClick={() => this.submitNewReply()}
+              >
+                Send Reply
+              </Button>
+            </div>
+          }
         />
-        <Button
-          onClick={() => this.submitNewReply()}
-        >
-          Submit
-        </Button>
-      </div>
-      {this.renderReplies()}
+      </div>) : null}
+      <List
+        className="comment-list"
+        header={`${this.state.replies.length} replies`}
+        itemLayout="horizontal"
+        dataSource={this.state.replies}
+        renderItem={item => (
+          <li>
+            <Comment
+              actions={[<span key="comment-basic-reply-to" onClick={() => this.replyTo(item.author)}>Reply</span>]}
+              author={item.author}
+              avatar={<Avatar src={item.avatar} alt={item.author}/>}
+              content={<div dangerouslySetInnerHTML={{__html: item.content}} />}
+            />
+          </li>
+        )}
+      />
     </div>;
   }
 }

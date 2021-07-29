@@ -20,7 +20,7 @@ class Account extends React.Component {
   }
 
   render() {
-    return this.props.account === null ? this.renderLogin() : this.renderAccount();
+    return this.props.account === null ? this.renderLogin() : null;
   }
 }
 
