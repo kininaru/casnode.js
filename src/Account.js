@@ -1,4 +1,6 @@
 import React from "react";
+import CasnodeAvatar from "./CasnodeAvatar";
+import {Button} from "antd";
 
 class Account extends React.Component {
   constructor(props) {
@@ -6,11 +8,15 @@ class Account extends React.Component {
   }
 
   renderLogin() {
-    return <button onClick={() => window.location.href = `${this.props.endpoint}/signin`}>Signin into Casnode</button>;
+    return <Button onClick={() => window.location.href = `${this.props.endpoint}/signin`}>
+      Signin into Casnode
+    </Button>;
   }
 
   renderAccount() {
-    return <div>Your Account: {this.props.account.name}</div>;
+    return <div>
+      <CasnodeAvatar avatar={this.props.account.avatar} name={this.props.account.name} />
+    </div>;
   }
 
   render() {

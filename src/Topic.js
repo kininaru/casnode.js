@@ -19,7 +19,7 @@ class Topic extends React.Component {
     if (this.props.topicId === -1) return <div>Please set a topicId for this plugin!</div>
     if (this.state.topic === null) return <div>Loading...</div>
     if (this.state.topic.content.length === 0) return null;
-    return <div dangerouslySetInnerHTML={{__html: this.state.topic.content}}/>
+    return <div style={{marginTop: 10, marginBottom: 10}} dangerouslySetInnerHTML={{__html: this.state.topic.content}}/>
   }
 }
 

@@ -31,10 +31,14 @@ class App extends React.Component {
 
   render() {
     if (this.state.endpoint === null) return <div>Please set an endpoint to enable Casnode Plugin!</div>;
-    return <div>
-      <Account endpoint={this.state.endpoint} account={this.state.account} />
+    return <div style={{margin: 10}}>
       <Topic endpoint={this.state.endpoint} topicId={this.state.topicId} />
-      <Reply endpoint={this.state.endpoint} topicId={this.state.topicId} />
+      <Account endpoint={this.state.endpoint} account={this.state.account} />
+      <Reply
+        endpoint={this.state.endpoint}
+        topicId={this.state.topicId}
+        account={this.state.account}
+      />
     </div>;
   }
 }
